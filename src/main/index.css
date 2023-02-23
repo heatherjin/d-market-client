@@ -11,7 +11,7 @@
 }
 
 #body {
-  min-height: 100%;
+  min-height: 100vh;
   width: 1024px;
   margin: 0 auto;
   padding-bottom: 24px;
@@ -94,4 +94,10 @@
 
 .product-avatar {
   width: 24px;
+}
+
+.product-link {
+  /* 원래 자식들 텍스트 색상을 보여주기위해 */
+  color: inherit;
+  text-decoration: none;
 }
