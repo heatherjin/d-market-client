@@ -34,7 +34,9 @@ body,
 
 #body {
   min-height: 100vh;
-  width: 1024px;
+  /* 반응형 크기조절 */
+  max-width: 1024px;
+  width: 100%;
   margin: 0 auto;
   padding-bottom: 24px;
 }
@@ -43,3 +45,4 @@ body,
   height: 200px;
   background-color: rgb(230, 230, 230);
 }
+
