@@ -4,11 +4,14 @@ import MainPageComponent from "./main";
 import { Switch, Route, Link, useHistory } from "react-router-dom";
 import UploadPage from "./upload";
 import ProductPage from "./product";
-import { Button } from "antd";
-import { DownloadOutlined } from "@ant-design/icons";
+import { Button, Select } from "antd";
+import { DownloadOutlined} from "@ant-design/icons";
+
 
 function App() {
   const history = useHistory();
+  const { Option } = Select;
+
   return (
     <div>
       <div id="header">
@@ -16,15 +19,17 @@ function App() {
           <Link to="/">
             <img src="/images/icons/logo.png" />
           </Link>
-          <Button
-            size="large"
-            onClick={function () {
-              history.push("/upload");
-            }}
-            icon={<DownloadOutlined />}
-          >
-            상품 업로드
-          </Button>
+       
+            <Button
+              size="large"
+              onClick={function () {
+                history.push("/upload");
+              }}
+              icon={<DownloadOutlined />}
+            >
+              PRODUCT UPLOAD
+            </Button>
+    
         </div>
       </div>
       <div id="body">

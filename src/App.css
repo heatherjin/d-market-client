@@ -32,6 +32,10 @@ body,
   height: 36px;
 }
 
+#header-area > :last-child {
+  display: flex;
+}
+
 #body {
   min-height: 100vh;
   /* 반응형 크기조절 */

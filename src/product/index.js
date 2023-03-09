@@ -26,14 +26,14 @@ function ProductPage() {
   }, []);
 
   if (product === null) {
-    return <h1>상품 정보를 받고 있습니다...</h1>;
+    return <h1>商品情報をいただいております</h1>;
   }
 
   const onClickPurchase = () => {
     axios
       .post(`${API_URL}/purchase/${id}`)
       .then((result) => {
-        message.info("구매가 완료되었습니다");
+        message.info("購入が完了しました。");
         getProduct();
       })
       .catch((err) => {
@@ -52,9 +52,9 @@ function ProductPage() {
       </div>
       <div id="contents-box">
         <div id="name">{product.name}</div>
-        <div id="price">{product.price}원</div>
+        <div id="price">{`${product.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}`}￥</div>
         <div id="createdAt">
-          {dayjs(product.createdAt).format("YYYY년 MM월 DD일")}
+          {dayjs(product.createdAt).format("YYYY年 MM月 DD日")}
         </div>
         <Button
           id="purchase-button"
@@ -64,7 +64,7 @@ function ProductPage() {
           onClick={onClickPurchase}
           disabled={product.soldout === 1}
         >
-          재빨리 구매하기
+          今すぐ購入する
         </Button>
         <pre id="description">{product.description}</pre>
       </div>
