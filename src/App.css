@@ -24,12 +24,14 @@ body,
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-right: 10px;
   /* margin: 0 auto; */
 }
 
 #header-area img {
   width: 128px;
   height: 36px;
+  margin-left: 10px;
 }
 
 #header-area > :last-child {
@@ -48,5 +50,9 @@ body,
 #footer {
   height: 200px;
   background-color: rgb(230, 230, 230);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 

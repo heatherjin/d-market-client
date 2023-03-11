@@ -45,7 +45,14 @@ function App() {
           </Route>
         </Switch>
       </div>
-      <div id="footer"></div>
+      <div id="footer"> 
+        <p>Copyright © 2023 D-Market</p>
+        <p>
+          <a href="#">About</a> -
+          <a href="#">Privacy Policy</a> -
+          <a href="#">Contact Us</a>
+        </p>
+      </div>
     </div>
   );
 }

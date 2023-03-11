@@ -1,5 +1,6 @@
 #image-box {
   max-height: 300px;
+  margin-top: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -47,6 +48,7 @@
 #description {
   margin-top: 16px;
   font-size: 16px;
+  white-space: pre-wrap;
 }
 
 #createdAt {
@@ -58,3 +60,4 @@
   margin-top: 8px;
   margin-bottom: 16px;
 }
+

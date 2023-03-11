@@ -52,7 +52,7 @@ function ProductPage() {
       </div>
       <div id="contents-box">
         <div id="name">{product.name}</div>
-        <div id="price">{`${product.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}`}￥</div>
+        <div id="price">￥{`${product.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}`}</div>
         <div id="createdAt">
           {dayjs(product.createdAt).format("YYYY年 MM月 DD日")}
         </div>
@@ -66,7 +66,7 @@ function ProductPage() {
         >
           今すぐ購入する
         </Button>
-        <pre id="description">{product.description}</pre>
+        <div id="description">{product.description}</div>
       </div>
     </div>
   );
