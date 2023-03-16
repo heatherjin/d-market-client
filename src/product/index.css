@@ -61,3 +61,16 @@
   margin-bottom: 16px;
 }
 
+#submit-detele-button {
+  /* 부모를 기준으로 우측, display flex는 부모가 자식을, float은 자식이 부모기준으로 */
+  float: right;
+  background-color: rgb(20, 120, 255);
+  color: white;
+  border: none;
+  margin-top: 16px;
+}
+
+.delete-label {
+  font-size: 18px;
+  width: 80px;
+}

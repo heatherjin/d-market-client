@@ -7,8 +7,8 @@ import {
   Upload,
   message,
 } from "antd";
-import { ForkOutlined } from "@ant-design/icons";
 import { useState } from "react";
+import "antd/dist/antd.css"; // Ant Design 스타일시트를 불러옴
 import "./index.css";
 import { API_URL } from "../config/constants.js";
 import axios from "axios";
@@ -29,6 +29,8 @@ function UploadPage() {
         price: parseInt(values.price),
         //useState함수에서 가져옴
         imageUrl: imageUrl,
+        password: values.password,
+        phone: values.phone,
       })
       .then((result) => {
         console.log(result);
@@ -88,6 +90,39 @@ function UploadPage() {
             className="upload-name"
             size="middle"
             placeholder="名前を入力してください。"
+          />
+        </Form.Item>
+        <Divider />
+        <Form.Item
+          label={<div className="upload-label">Phone</div>}
+          name="phone"
+          rules={[
+            {
+              pattern: /[0-9]{3}-[0-9]{4}-[0-9]{4}/,
+              message: "正しい携帯番号形式ではありません。",
+            },
+            { required: true, message: "携帯番号を入力してください。" },
+          ]}
+        >
+          <Input
+            className="upload-name"
+            size="middle"
+            placeholder="ex)0XX-XXXX-XXXX"
+            onChange={(e) =>
+              e.target.value.replace(/-/g, "") // "-"를 제거함
+            }
+         />
+        </Form.Item>
+        <Divider />
+        <Form.Item
+          label={<div className="upload-label">Password</div>}
+          name="password"
+          rules={[{ required: true, message: "Passwordを入力してください。" }]}
+        >
+          <Input
+            className="upload-name"
+            size="middle"
+            placeholder="Passwordを入力してください。"
           />
         </Form.Item>
         <Divider />
