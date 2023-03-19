@@ -27,7 +27,7 @@ function UpdatePage() {
   const {product} = location.state;
   
   const onSubmit = (values) => {
-    console.log(values.soldout)
+
     axios
      .put(`${API_URL}/products/${product.id}`, {
         name: values.name,
