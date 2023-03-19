@@ -63,6 +63,7 @@
 
 #submit-detele-button {
   /* 부모를 기준으로 우측, display flex는 부모가 자식을, float은 자식이 부모기준으로 */
+  /* 親を基準に右側、display flexは親が子を、floatは子が親を基準に */
   float: right;
   background-color: rgb(20, 120, 255);
   color: white;
@@ -73,4 +74,20 @@
 .delete-label {
   font-size: 18px;
   width: 80px;
+}
+
+#product-info-button {
+  margin-bottom: 10px;
+}
+
+#delete-button {
+  float: right;
+  margin-top: 16px;
+  margin-left: 5px;
+}
+
+#upload-button {
+  float: right;
+  margin-top: 16px;
+  margin-left: 5px;
 }

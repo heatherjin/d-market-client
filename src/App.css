@@ -41,6 +41,7 @@ body,
 #body {
   min-height: 100vh;
   /* 반응형 크기조절 */
+  /* 反応型 サイズ調節 */
   max-width: 1024px;
   width: 100%;
   margin: 0 auto;

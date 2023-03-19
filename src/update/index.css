@@ -29,6 +29,7 @@
   width: 220px;
 }
 
+
 .upload-label {
   font-size: 18px;
   width: 80px;
@@ -38,7 +39,7 @@
   height: 150px;
 }
 
-#submit-button {
+#update-button {
   float: right;
   background-color: rgb(20, 120, 255);
   color: white;

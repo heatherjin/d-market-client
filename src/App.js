@@ -4,6 +4,7 @@ import MainPageComponent from "./main";
 import { Switch, Route, Link, useHistory } from "react-router-dom";
 import UploadPage from "./upload";
 import ProductPage from "./product";
+import UpdatePage from "./update";
 import { Button, Select } from "antd";
 import { DownloadOutlined} from "@ant-design/icons";
 
@@ -42,6 +43,9 @@ function App() {
           </Route>
           <Route exact={true} path="/upload">
             <UploadPage />
+          </Route>
+          <Route exact={true} path="/update/:id">
+           <UpdatePage />
           </Route>
         </Switch>
       </div>

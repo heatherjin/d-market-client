@@ -6,39 +6,43 @@ import {
   Button,
   Upload,
   message,
+  Select
 } from "antd";
 import { useState } from "react";
+// Ant Design 스타일시트를 불러옴
+// Ant Design スタイルシートを読み込む
 import "antd/dist/antd.css"; 
 import "./index.css";
 import { API_URL } from "../config/constants.js";
 import axios from "axios";
-import { useHistory } from "react-router-dom";
+// 페이지 이동
+// ページ移動
+import { useHistory, useLocation  } from "react-router-dom";
 
-function UploadPage() {
+function UpdatePage() {
   const [imageUrl, setImageUrl] = useState(null);
   // react hook
   const history = useHistory();
+  const location = useLocation();
+  const {product} = location.state;
   
   const onSubmit = (values) => {
     axios
-      .post(`${API_URL}/products`, {
+     .put(`${API_URL}/products/${product.id}`, {
         name: values.name,
         description: values.description,
         seller: values.seller,
-        // 스트링을 숫자로 변환
-        // ストリングを数字に変換
         price: parseInt(values.price),
-        //useState함수에서 가져옴
-        //useState関数から取得
-        imageUrl: imageUrl,
+        //수정되면 수정된값으로, 수정안하면 기존값을 넣음
+        //修正されれば修正された値で、修正しなければ既存値を入れる。
+        imageUrl: imageUrl !== null ? imageUrl : product.imageUrl,  
         password: values.password,
         phone: values.phone,
+        soldout: values.soldout        
       })
       .then((result) => {
         console.log(result);
-        // push는 뒤로가기 눌렀을때 해당페이지. replace는 최초페이지로 감
-        // pushは後ろへ行くを押したときに該当ページ。 replaceは最初のページに行く
-        history.replace("/");
+        history.push(`/products/${product.id}`); 
       })
       .catch((err) => {
         console.error(err);
@@ -46,9 +50,13 @@ function UploadPage() {
       });
   };
   const onChangeImage = (info) => {
+    //네트워크 요청이 끝날때 까지의 과정은 업로딩
+    //ネットワーク要請が終わるまでの過程はアップローディング
     if (info.file.status === "uploading") {
       return;
     }
+    //완료
+    //完了
     if (info.file.status === "done") {
       const response = info.file.response;
       const imageUrl = response.imageUrl;
@@ -57,24 +65,37 @@ function UploadPage() {
   };
   return (
     
-    <div id="upload-container">
+    <div id="upload-container">    
+      <Form
+        name="商品修正"
+        onFinish={onSubmit}
+        initialValues={{
+        name: product.name,
+          description: product.description,
+          seller: product.seller,
+          price: product.price.toString(),
+          password: product.password,
+          phone: product.phone,
+          imageUrl: product.imageUrl
+      }} >
 
-      <Form name="商品アップロード" onFinish={onSubmit} >
         <Form.Item
           name="upload"
-          label={<div className="upload-label">商品写真</div>}
+          label={<div className="upload-label">商品写真</div> }
+          
         >
           {/* name: key, value의 KEY */}
           <Upload
             name="image"
             action={`${API_URL}/image`}
-            listType="picture"
-            //
+            listType="picture"            
             showUploadList={false}
             onChange={onChangeImage}
           >
             {imageUrl ? (
               <img id="upload-img" src={`${API_URL}/${imageUrl}`} />
+            ) : product.imageUrl ? (
+              <img id="upload-img" src={`${API_URL}/${product.imageUrl}`} />
             ) : (
               <div id="upload-img-placeholder">
                 <img src="/images/icons/camera.png" />
@@ -82,6 +103,17 @@ function UploadPage() {
               </div>
             )}
           </Upload>
+        </Form.Item>
+        <Divider />
+        <Form.Item
+          label={<div className="upload-label">取引状況</div>}
+          name="soldout"
+          rules={[{ required: true, message: "取引状況を確認してください。" }]}
+        >
+          <Select defaultValue={product.soldout.toString()} style={{ width: '220px' }}>
+            <Select.Option value="0">取引中</Select.Option>
+            <Select.Option value="1">取引完了</Select.Option>
+          </Select>
         </Form.Item>
         <Divider />
         <Form.Item
@@ -159,8 +191,8 @@ function UploadPage() {
           />
         </Form.Item>
         <Form.Item>
-          <Button id="submit-button" size="large" htmlType="submit">
-            商品登録
+          <Button id="update-button" size="large" htmlType="submit">
+            UPDATE
           </Button>
         </Form.Item>
       </Form>
@@ -168,4 +200,4 @@ function UploadPage() {
   );
 }
 
-export default UploadPage;
+export default UpdatePage;

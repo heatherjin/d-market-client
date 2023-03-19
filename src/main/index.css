@@ -1,11 +1,11 @@
 #banner {
   /* 반응형 크기조절 */
+  /* 反応型 サイズ調節 */
   max-height: 300px;
 }
 
 #banner > img {
   width: 100%;
-  /* 반응형 크기조절 */
   max-height: 300px;
 }
 
@@ -28,6 +28,7 @@
   border: 1px solid rgb(230, 230, 230);
   border-radius: 12px;
   /* 자식이 자기 영역 침범하면 숨기겠다 */
+  /* 子供が自分の領域を侵犯したら隠す。*/
   overflow: hidden;
   position: relative;
 }
@@ -35,12 +36,14 @@
 .product-blur {
   position: absolute;
   /* 상하좌우 0을 설정하면 전체영역을 차지함 */
+  /* 上下左右0を設定すると全領域を占める */
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   background-color: #ffffffaa;
   /* 클릭링크 적용 */
+  /* クリックリンク適用*/
   pointer-events: none;
 }
 
@@ -77,6 +80,7 @@
 
 .product-link {
   /* 원래 자식들 텍스트 색상을 보여주기위해 */
+  /* 元のテキストの色を見せるため */
   color: inherit;
   text-decoration: none;
 }

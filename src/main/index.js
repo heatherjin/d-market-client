@@ -9,6 +9,7 @@ import relativeTime from "dayjs/plugin/relativeTime";
 import { SearchOutlined } from "@ant-design/icons";
 
 //fromnow 기능을 사용하기 위해서 extend 해줌
+//fromnow機能を使用するためにextendしてくれる
 dayjs.extend(relativeTime);
 
 function MainPage() {
@@ -18,9 +19,8 @@ function MainPage() {
   const [totalPages, setTotalPages] = React.useState(1);
   const [currentPage, setCurrentPage] = React.useState(1);
   
-
-
   // 검색어가 변경될 때마다 호출
+  // 検索ワードが変更されるたびに呼び出し
   const onChangeSearch = (event) => {
     setSearch(event.target.value);
   };
@@ -34,16 +34,16 @@ function MainPage() {
         setProducts(products);
       })
       .catch(function (error) {
-        console.error("에러 발생:", error);
+        console.error("エラー発生：", error);
       });
   };
 
   
   const onPageChange = (page) => {
-    setCurrentPage(page); // 페이지 번호를 업데이트합니다.
+    // ページ番号をアップデート
+    // 페이지 번호를 업데이트
+    setCurrentPage(page); 
   };
-
-  
 
   React.useEffect(function () {
     let apiUrl = `${API_URL}/products`;
@@ -64,7 +64,7 @@ function MainPage() {
         
       })
       .catch(function (error) {
-        console.error("에러 발생:", error);
+        console.error("エラー発生：", error);
       });
 
     axios
@@ -74,7 +74,7 @@ function MainPage() {
         setBanners(banners);
       })
       .catch((err) => {
-        console.error("에러가 발생했습니다.", err);
+        console.error("エラー発生：", err);
       });
   }, [search, currentPage]);
 
@@ -82,8 +82,7 @@ function MainPage() {
     <div>
       <Carousel autoplay autoplaySpeed={2000}>
         {banners.map((banner, index) => {
-          return (
-            
+          return (            
               <div id="banner">
                 <img src={`${API_URL}/${banner.imageUrl}`} />
               </div>
