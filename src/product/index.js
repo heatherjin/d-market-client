@@ -1,10 +1,11 @@
-import { useParams,useHistory } from "react-router-dom";
+import { useParams,useHistory,Link } from "react-router-dom";
 import "./index.css";
 import { API_URL } from "../config/constants.js";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import dayjs from "dayjs";
 import { Button, Input, message, Modal } from "antd";
+import { DeleteOutlined, UnorderedListOutlined, EditOutlined } from "@ant-design/icons";
 
 function ProductPage() {
   const { id } = useParams();
@@ -169,6 +170,7 @@ function ProductPage() {
             <Button          
             onClick={showModal2}
             id="upload-button"
+            icon={<EditOutlined />}
             >UPDATE</Button> 
             <Modal
               title="パスワード確認"
@@ -184,6 +186,7 @@ function ProductPage() {
             <Button          
             onClick={showModal3}
             id="delete-button"
+            icon={<DeleteOutlined />}
             >DELETE</Button> 
             <Modal
               title="パスワード確認"
@@ -195,6 +198,11 @@ function ProductPage() {
               <Input.Password placeholder="パスワードをご入力ください。" onChange={handlePasswordInputChange} />
             </Modal>      
           </div>
+          <div>
+            <Link to="/" >
+              <Button id="return-button" icon={<UnorderedListOutlined />}>LIST</Button>
+            </Link>
+          </div>          
        </div>
       </div>
     </div>

@@ -27,6 +27,7 @@ function UpdatePage() {
   const {product} = location.state;
   
   const onSubmit = (values) => {
+    console.log(values.soldout)
     axios
      .put(`${API_URL}/products/${product.id}`, {
         name: values.name,
@@ -64,8 +65,9 @@ function UpdatePage() {
     }
   };
   return (
-    
+
     <div id="upload-container">    
+
       <Form
         name="商品修正"
         onFinish={onSubmit}
@@ -76,7 +78,8 @@ function UpdatePage() {
           price: product.price.toString(),
           password: product.password,
           phone: product.phone,
-          imageUrl: product.imageUrl
+          imageUrl: product.imageUrl,
+          soldout: product.soldout.toString(),
       }} >
 
         <Form.Item

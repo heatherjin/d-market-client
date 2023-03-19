@@ -12,7 +12,8 @@ import "antd/dist/antd.css";
 import "./index.css";
 import { API_URL } from "../config/constants.js";
 import axios from "axios";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
+import { UnorderedListOutlined } from "@ant-design/icons";
 
 function UploadPage() {
   const [imageUrl, setImageUrl] = useState(null);
@@ -161,7 +162,7 @@ function UploadPage() {
         <Form.Item>
           <Button id="submit-button" size="large" htmlType="submit">
             商品登録
-          </Button>
+          </Button>          
         </Form.Item>
       </Form>
     </div>
