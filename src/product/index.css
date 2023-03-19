@@ -77,17 +77,21 @@
 }
 
 #product-info-button {
-  margin-bottom: 10px;
-}
-
-#delete-button {
-  float: right;
-  margin-top: 16px;
-  margin-left: 5px;
+  bottom: 20px;
+  left: 20px; 
+  display: flex;
+  justify-content: flex-end;
+ 
 }
 
 #upload-button {
-  float: right;
-  margin-top: 16px;
+  margin-top: 50px;
+  margin-left: 5px;
+
+}
+
+#delete-button {
+  margin-top: 50px;
   margin-left: 5px;
 }
+

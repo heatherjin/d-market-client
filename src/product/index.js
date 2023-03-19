@@ -167,21 +167,6 @@ function ProductPage() {
         <div id="product-info-button">
           <div>          
             <Button          
-            onClick={showModal3}
-            id="delete-button"
-            >DELETE</Button> 
-            <Modal
-              title="パスワード確認"
-              visible={visible3}
-              onOk={handleOkDelete}
-              onCancel={handleCancel3}
-              destroyOnClose={true}
-            >
-              <Input.Password placeholder="パスワードをご入力ください。" onChange={handlePasswordInputChange} />
-          </Modal>      
-        </div>
-        <div>          
-            <Button          
             onClick={showModal2}
             id="upload-button"
             >UPDATE</Button> 
@@ -193,8 +178,23 @@ function ProductPage() {
               destroyOnClose={true}
             >
               <Input.Password placeholder="パスワードをご入力ください。" onChange={handlePasswordInputChange} />
-          </Modal>      
-        </div>
+            </Modal>      
+         </div>
+         <div>          
+            <Button          
+            onClick={showModal3}
+            id="delete-button"
+            >DELETE</Button> 
+            <Modal
+              title="パスワード確認"
+              visible={visible3}
+              onOk={handleOkDelete}
+              onCancel={handleCancel3}
+              destroyOnClose={true}
+            >
+              <Input.Password placeholder="パスワードをご入力ください。" onChange={handlePasswordInputChange} />
+            </Modal>      
+          </div>
        </div>
       </div>
     </div>
