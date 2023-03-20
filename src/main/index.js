@@ -22,7 +22,9 @@ function MainPage() {
   // 검색어가 변경될 때마다 호출
   // 検索ワードが変更されるたびに呼び出し
   const onChangeSearch = (event) => {
+    setCurrentPage(1); // 검색어가 변경될 때마다 페이지를 1로 초기화
     setSearch(event.target.value);
+
   };
 
   const searchButtonClick = () => {
